@@ -1,11 +1,284 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Support - UnitSmart</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support – UnitSmart</title>
+  <meta name="description" content="Get help with UnitSmart. Find answers to frequently asked questions or contact us directly." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1c1c1e; background: #fff; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); z-index: 100;
+    }
+    .nav-logo { font-size: 20px; font-weight: 700; color: #007aff; text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { text-decoration: none; color: #555; font-size: 15px; }
+    .nav-links a:hover { color: #007aff; }
+
+    .page-header {
+      background: linear-gradient(180deg, #f0f6ff 0%, #fff 100%);
+      padding: 64px 24px 48px; text-align: center;
+    }
+    .page-header h1 { font-size: 42px; font-weight: 800; margin-bottom: 12px; }
+    .page-header p { font-size: 17px; color: #777; max-width: 480px; margin: 0 auto; line-height: 1.5; }
+
+    .content { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* Contact Card */
+    .contact-card {
+      background: linear-gradient(135deg, #007aff 0%, #0055cc 100%);
+      border-radius: 20px; padding: 36px 32px; color: #fff; margin-bottom: 56px;
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    }
+    .contact-card-icon { font-size: 48px; }
+    .contact-card-text h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .contact-card-text p { font-size: 15px; opacity: 0.85; line-height: 1.5; margin-bottom: 16px; }
+    .contact-card a {
+      display: inline-block; background: #fff; color: #007aff;
+      border-radius: 10px; padding: 10px 20px; font-size: 15px; font-weight: 700;
+      text-decoration: none; transition: transform 0.15s;
+    }
+    .contact-card a:hover { transform: translateY(-1px); }
+
+    /* FAQ */
+    .faq-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .faq-sub { font-size: 16px; color: #777; margin-bottom: 32px; }
+
+    .faq-item {
+      border-bottom: 1px solid #f0f0f0; padding: 20px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-size: 17px; font-weight: 600; color: #1c1c1e; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      user-select: none;
+    }
+    .faq-q .chevron {
+      font-size: 14px; color: #007aff; transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-a {
+      font-size: 15px; color: #555; line-height: 1.7; margin-top: 12px;
+      display: none;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .chevron { transform: rotate(180deg); }
+
+    /* Tips */
+    .tips-section { margin-top: 56px; }
+    .tips-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .tips-sub { font-size: 16px; color: #777; margin-bottom: 32px; }
+
+    .tip-card {
+      background: #f9f9f9; border-radius: 16px; padding: 24px;
+      margin-bottom: 16px; display: flex; gap: 16px; align-items: flex-start;
+    }
+    .tip-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+    .tip-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .tip-card p { font-size: 15px; color: #555; line-height: 1.6; }
+
+    footer {
+      background: #1c1c1e; color: #aaa; padding: 40px 24px;
+      text-align: center; font-size: 14px;
+    }
+    footer a { color: #aaa; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #fff; }
+    footer .footer-links { margin-bottom: 16px; }
+  </style>
 </head>
 <body>
-  <h1>Support</h1>
-  <p>If you need help, contact us:</p>
-  <p>Email: support@yourapp.com</p>
+
+  <nav>
+    <a class="nav-logo" href="index.html">UnitSmart</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <h1>Support</h1>
+    <p>Need help? We're here for you. Check the FAQ below or reach out directly.</p>
+  </div>
+
+  <div class="content">
+
+    <!-- Contact -->
+    <div class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <div class="contact-card-text">
+        <h2>Contact Us</h2>
+        <p>Can't find what you need in the FAQ? Send us an email and we'll get back to you as soon as possible.</p>
+        <a href="mailto:support@unitsmart.app">support@unitsmart.app</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <p class="faq-sub">Tap a question to see the answer.</p>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        How do I create my first comparison?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        Tap the "+" button on the dashboard to start a new session. Give your session a name (e.g. "Cooking Oil"), then tap "Add Product" to enter each product's name, price, and quantity. UnitSmart will automatically calculate and rank them by price per unit.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        What units does UnitSmart support?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        UnitSmart supports grams (g), kilograms (kg), millilitres (ml), litres (L), and pieces (pcs). When comparing products, make sure to use the same unit type so the calculation is accurate.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        Does the app require an internet connection?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        No. UnitSmart is completely offline. All data is stored on your device. You can use the app in the supermarket without any Wi-Fi or mobile data connection.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        How do I back up my data?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        Go to Settings within the app and tap "Export Data". Your comparison history will be saved as a JSON file to your device. You can store this file in Files, iCloud Drive, or any location you choose.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        How do I delete a comparison session?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        On the dashboard, swipe left on any session to reveal the delete button. To delete multiple sessions at once, tap "Edit" in the top-right corner, select the sessions you want to remove, then tap "Delete".
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        Can I duplicate an existing session?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        Yes. Long-press on any session card or tap the "..." menu to find the "Duplicate" option. This is useful when you want to compare the same product category with updated prices.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        Does UnitSmart collect any of my data?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        No. UnitSmart collects zero personal data. There are no accounts, no analytics, and no tracking of any kind. Your data never leaves your device. See our <a href="privacy.html" style="color: #007aff;">Privacy Policy</a> for full details.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        How do I turn off the monthly reminder notification?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        Open your iPhone's Settings app → Notifications → UnitSmart → toggle off "Allow Notifications". You can also manage this from within the app's Settings screen.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        The app is in English. Can I switch to Indonesian?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        Yes. UnitSmart follows your iPhone's system language. To switch to Bahasa Indonesia, go to iPhone Settings → General → Language & Region → iPhone Language → select "Indonesia". The app will restart in Indonesian.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        I found a bug. How do I report it?
+        <span class="chevron">▼</span>
+      </div>
+      <div class="faq-a">
+        We appreciate bug reports! Please email us at <a href="mailto:support@unitsmart.app" style="color:#007aff;">support@unitsmart.app</a> with a description of the issue, the steps to reproduce it, and your iPhone model and iOS version. Screenshots or screen recordings are very helpful.
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="tips-section">
+      <h2 class="tips-title">Tips & Tricks</h2>
+      <p class="tips-sub">Get the most out of UnitSmart.</p>
+
+      <div class="tip-card">
+        <div class="tip-icon">📸</div>
+        <div>
+          <h3>Name your sessions clearly</h3>
+          <p>Use the product category as the session name (e.g. "Minyak Goreng", "Body Wash") so you can quickly find past comparisons on your dashboard.</p>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">🔁</div>
+        <div>
+          <h3>Duplicate sessions for price checks</h3>
+          <p>When prices change, duplicate an old session and update the prices instead of starting from scratch. Saves you from re-entering product names.</p>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">🏷️</div>
+        <div>
+          <h3>Include the brand and size in the product name</h3>
+          <p>e.g. "Bimoli 2L" vs "Sania 1L" — this makes the comparison results much easier to read at a glance.</p>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">📤</div>
+        <div>
+          <h3>Export before uninstalling</h3>
+          <p>If you ever need to reinstall the app, remember to export your data first. Since everything is stored locally, uninstalling will permanently remove your history.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <p>&copy; 2026 UnitSmart. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(q) {
+      q.addEventListener('click', function() {
+        var item = q.closest('.faq-item');
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
 </body>
 </html>

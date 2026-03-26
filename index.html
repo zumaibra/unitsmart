@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UnitSmart – Smart Price Comparison</title>
+  <meta name="description" content="UnitSmart helps you compare prices per unit across products so you always get the best value when shopping." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1c1c1e; background: #fff; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); z-index: 100;
+    }
+    .nav-logo { font-size: 20px; font-weight: 700; color: #007aff; text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { text-decoration: none; color: #555; font-size: 15px; }
+    .nav-links a:hover { color: #007aff; }
+
+    .hero {
+      text-align: center; padding: 100px 24px 80px;
+      background: linear-gradient(180deg, #f0f6ff 0%, #fff 100%);
+    }
+    .hero-badge {
+      display: inline-block; background: #e8f0fe; color: #007aff;
+      border-radius: 20px; padding: 6px 16px; font-size: 13px; font-weight: 600;
+      margin-bottom: 24px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #1c1c1e; }
+    .hero h1 span { color: #007aff; }
+    .hero p { font-size: 18px; color: #555; max-width: 520px; margin: 0 auto 40px; line-height: 1.6; }
+
+    .app-store-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #000; color: #fff; padding: 14px 28px; border-radius: 14px;
+      text-decoration: none; font-size: 15px; font-weight: 600;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .app-store-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+    .app-store-btn svg { width: 22px; height: 22px; fill: #fff; }
+
+    .features { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 12px; }
+    .section-sub { text-align: center; color: #777; font-size: 17px; margin-bottom: 56px; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+    .feature-card {
+      background: #f9f9f9; border-radius: 20px; padding: 32px 28px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .feature-icon { font-size: 36px; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 15px; color: #666; line-height: 1.6; }
+
+    .how-it-works { background: #f9f9f9; padding: 80px 24px; }
+    .steps { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+    .step { display: flex; align-items: flex-start; gap: 20px; }
+    .step-num {
+      min-width: 44px; height: 44px; background: #007aff; color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 18px; flex-shrink: 0;
+    }
+    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .step p { font-size: 15px; color: #666; line-height: 1.5; }
+
+    .privacy-note {
+      max-width: 680px; margin: 0 auto; padding: 80px 24px;
+      text-align: center;
+    }
+    .privacy-note .shield { font-size: 48px; margin-bottom: 16px; }
+    .privacy-note h2 { font-size: 26px; font-weight: 700; margin-bottom: 12px; }
+    .privacy-note p { font-size: 16px; color: #555; line-height: 1.6; }
+
+    .cta-section {
+      background: linear-gradient(135deg, #007aff 0%, #0055cc 100%);
+      padding: 80px 24px; text-align: center; color: #fff;
+    }
+    .cta-section h2 { font-size: 36px; font-weight: 800; margin-bottom: 14px; }
+    .cta-section p { font-size: 18px; opacity: 0.85; margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; color: #007aff; padding: 14px 28px; border-radius: 14px;
+      text-decoration: none; font-size: 15px; font-weight: 700;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    footer {
+      background: #1c1c1e; color: #aaa; padding: 40px 24px;
+      text-align: center; font-size: 14px;
+    }
+    footer a { color: #aaa; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #fff; }
+    footer .footer-links { margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">UnitSmart</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">Available on iOS</div>
+    <h1>Shop Smarter.<br /><span>Compare by Unit Price.</span></h1>
+    <p>Stop guessing which size gives you the best deal. UnitSmart instantly calculates price per unit so you always choose the smartest buy.</p>
+    <a href="#" class="app-store-btn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      Download on the App Store
+    </a>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2 class="section-title">Everything you need in the aisle</h2>
+    <p class="section-sub">Fast, simple, and works entirely offline — no account required.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Instant Calculation</h3>
+        <p>Enter price and quantity — UnitSmart immediately shows you the price per gram, ml, or piece.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Best Value Badge</h3>
+        <p>The cheapest option gets a "BEST" badge automatically, so the winner is always clear at a glance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Comparison Sessions</h3>
+        <p>Group products into sessions. Compare 2 items or 20 — organized and saved for future reference.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📴</div>
+        <h3>100% Offline</h3>
+        <p>No internet required. All your data stays on your device. No sign-up, no cloud, no tracking.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Bilingual</h3>
+        <p>Supports English and Indonesian (Bahasa Indonesia) — built for everyday Indonesian shoppers.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <h3>Local Backup</h3>
+        <p>Export your comparison data as a JSON file to your device anytime. Your data, your control.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <h2 class="section-title">How it works</h2>
+    <p class="section-sub" style="margin-bottom: 48px;">Three steps. Less than a minute.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Create a Comparison Session</h3>
+          <p>Tap "+" to start a new session. Give it a name like "Cooking Oil" or "Shampoo".</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Add Products</h3>
+          <p>Enter the product name, price, and quantity. Add as many variants or brands as you want to compare.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>See the Winner</h3>
+          <p>UnitSmart instantly ranks all products by price per unit and highlights the best value with a badge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Highlight -->
+  <section class="privacy-note">
+    <div class="shield">🔒</div>
+    <h2>Your data never leaves your phone</h2>
+    <p>UnitSmart collects zero personal data. There are no accounts, no analytics, no ads. Everything is stored locally on your device. <a href="privacy.html" style="color: #007aff;">Read our full Privacy Policy →</a></p>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to shop smarter?</h2>
+    <p>Join shoppers who never overpay for the same product in a bigger (or smaller) package again.</p>
+    <a href="#" class="cta-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#007aff" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      Download on the App Store
+    </a>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <p>&copy; 2026 UnitSmart. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
